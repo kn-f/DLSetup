@@ -23,5 +23,10 @@ https://fleet.linuxserver.io/
 ## Fix permissions
 sudo chmod knf:knf -R *
 restart containers
+## SMB Mount
+sudo apt-get install cifs-utils
+mkdir ???
+in /etc/fstab: //servername/sharename  /media/???  cifs  guest,uid=1000  0  0
+in docker compose       - /media/???/Music:/oldmusic
 
 
