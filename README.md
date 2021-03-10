@@ -24,12 +24,12 @@ docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /va
 ~~* Create a new bridged network to link apps to allow contaner name as hostname ~~
 ## Apps
 https://fleet.linuxserver.io/
-~~ ### Watchtower ~~
-## Fix permissions
+### Watchtower
+~~## Fix permissions
 ```bash
 sudo chmod knf:knf -R *
 ```
-restart containers
+restart containers~~
 ## SMB Mount
 ```bash
 sudo apt-get install cifs-utils
@@ -38,16 +38,17 @@ mkdir ???
 * in /etc/fstab: //servername/sharename  /media/???  cifs  guest,uid=1000  0  0
 * in docker compose       - /media/???/Music:/oldmusic
 ## Fix access to shared drive
-```bash
+~~```bash
 docker exec XXX addgroup -g 998 vboxsf
 docker exec XXX usermod -a -G 998 abc
-```
+```~~
+Don't use Virtualbox shared drive, user SMB mount instead
 ## Scripts
-Should / can be put in *cron*
-### Beets
+~~Should / can be put in *cron*~~
+~~### Beets
 ```bash
 docker exec -u abc -it beets /bin/bash -c 'beet import /downloads'
-```
+```~~
 ### Sync
 ```bash
 rsync --remove-source-files -avzh /media/DV/downloads/complete/$FOLDER/ /media/NAS/$FOLDER/
