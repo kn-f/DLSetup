@@ -14,14 +14,21 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ### Fix
 * sudo usermod -a -G docker $USER
 * Reboot
-## Portainer
+~~## Portainer
 https://www.portainer.io/installation/
 
-```bash
+~~```bash
 docker volume create portainer_data
 docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+```~~~~
+* Create a new network for reverse proxy:
+```bash
+docker network create proxy
 ```
-~~* Create a new bridged network to link apps to allow contaner name as hostname ~~
+## Folder structure
+-+ docker
+ +-config
+ +data
 ## Apps
 https://fleet.linuxserver.io/
 ### Watchtower
