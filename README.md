@@ -14,13 +14,8 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ### Fix
 * sudo usermod -a -G docker $USER
 * Reboot
-~~## Portainer
-https://www.portainer.io/installation/
 
-~~```bash
-docker volume create portainer_data
-docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
-```~~~~
+
 * Create a new network for reverse proxy:
 ```bash
 docker network create proxy
@@ -32,11 +27,7 @@ docker network create proxy
 ## Apps
 https://fleet.linuxserver.io/
 ### Watchtower
-~~## Fix permissions
-```bash
-sudo chmod knf:knf -R *
-```
-restart containers~~
+
 ## SMB Mount
 ```bash
 sudo apt-get install cifs-utils
@@ -45,23 +36,16 @@ mkdir ???
 * in /etc/fstab: //servername/sharename  /media/???  cifs  guest,uid=1000  0  0
 * in docker compose       - /media/???/Music:/oldmusic
 ## Fix access to shared drive
-~~```bash
-docker exec XXX addgroup -g 998 vboxsf
-docker exec XXX usermod -a -G 998 abc
-```~~
-Don't use Virtualbox shared drive, user SMB mount instead
+
+Don't use Virtualbox shared drive, user SMB mount instead as performances are better
 ## Scripts
-~~Should / can be put in *cron*~~
-~~### Beets
-```bash
-docker exec -u abc -it beets /bin/bash -c 'beet import /downloads'
-```~~
+
 ### Sync
 ```bash
 rsync --remove-source-files -avzh /media/DV/downloads/complete/$FOLDER/ /media/NAS/$FOLDER/
 find /media/DV/downloads/complete/$FOLDER/. -type d -empty -delete
 ```
-### IPFilters
+### P2PFilters
 ```bash
 #!/bin/bash
 
