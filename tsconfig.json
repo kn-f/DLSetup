@@ -1,0 +1,11 @@
+{
+  "include": ["src/**/*", "test/**/*"],
+  "exclude": ["./node_modules/","./dist/"],
+  
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "target": "es5",
+    "sourceMap": true,
+    "experimentalDecorators": true
+  }
+}
